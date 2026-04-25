@@ -20,7 +20,8 @@ import {
   shiftIsoByMinutes,
 } from "../utils/format.js";
 
-const databasePath = path.join(process.cwd(), "data", "auction.db");
+const databaseDirectory = process.env.DATABASE_DIR || path.join(process.cwd(), "data");
+const databasePath = path.join(databaseDirectory, "auction.db");
 let database;
 
 const triggerTypeValues = Object.values(TriggerType)

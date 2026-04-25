@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: gocomet-auction
+    env: node
+    # Since there are no dependencies in package.json, we can just echo for the build phase
+    buildCommand: 'echo "No build step required"'
+    startCommand: "npm start"
+    envVars:
+      - key: DATABASE_DIR
+        value: /var/data
+    disk:
+      name: auction-data
+      mountPath: /var/data
+      sizeGB: 1

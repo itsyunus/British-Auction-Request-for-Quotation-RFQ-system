@@ -20,7 +20,7 @@ import {
   shiftIsoByMinutes,
 } from "../utils/format.js";
 
-const databaseDirectory = process.env.DATABASE_DIR || path.join(process.cwd(), "data");
+const databaseDirectory = process.env.VERCEL ? "/tmp" : (process.env.DATABASE_DIR || path.join(process.cwd(), "data"));
 const databasePath = path.join(databaseDirectory, "auction.db");
 let database;
 
